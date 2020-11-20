@@ -9,6 +9,7 @@ function App() {
     .then(r=> r.json())
     .then(j=>setPosts(j.data.children.map(r=>r.data.thumbnail)));
   },[]);
+  console.log(posts.length); 
   return (
     <div className="App">
       <header className="App-header">
@@ -16,12 +17,11 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        Testing reddit api request
         {
           posts.length
-          ? 'No new posts'
-          : posts.map(p => <img src={p} />)
-        }
+          ? posts.map(p => <img src={p} />)
+          :'Loadin...'
+        } 
       </header>
     </div>
   );
