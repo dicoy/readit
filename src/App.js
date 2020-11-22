@@ -1,28 +1,42 @@
 import logo from './logo.svg';
-import react, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
+import useGlobalStore from "./store";
+import  {refreshArticles} from './actions';
 import './App.css';
 
 function App() {
-  const [ posts, setPosts ] = useState([]);
+  const [articles, refreshArticles] = useGlobalStore(
+    store => store.articles,
+    actions => actions.refreshArticles
+  );
   useEffect(() => {
-    fetch('https://www.reddit.com/top.json?limit=50')
-    .then(r=> r.json())
-    .then(j=>setPosts(j.data.children.map(r=>r.data.thumbnail)));
-  },[]);
-  console.log(posts.length); 
+    refreshArticles();
+  },[refreshArticles]);
+
   return (
-    <div className="App">
+    <div className="ReadIt">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        {
-          posts.length
-          ? posts.map(p => <img src={p} />)
-          :'Loadin...'
-        } 
+        <h1>Readit</h1>
+        <h2>Read Reddit's top 50 stories and get conviced of hiring me</h2>
       </header>
+      {
+        articles.length
+        ? articles
+          .map((a, i) => {if (i < 5) console.log(a.data); return a;})
+          .map(({data}, i) => <img
+            src={
+              data.thumbnail.startsWith('http')
+              ? data.thumbnail
+              : logo
+            } 
+            key={i} 
+            alt={data.title}
+            title={data.title}
+            width={data.thumbnail_width || 140}
+            height={data.thumbnail_height || 140} 
+          />)
+        :'Loading...'
+      }
     </div>
   );
 }
