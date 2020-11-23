@@ -1,12 +1,13 @@
 import React from "react";
-import useGlobalHook from "use-global-hook";
+import globalHook from 'use-global-hook';
 import * as actions from "../actions";
 
 const initialState = {
   articles: [],
+  viewed: [],
   errors: {}
 };
 
-const useGlobalStore = useGlobalHook(React, initialState, actions);
+const useGlobal = globalHook(React, initialState, actions);
 
-export default useGlobalStore;
+export default useGlobal;

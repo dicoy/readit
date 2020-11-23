@@ -1,11 +1,12 @@
-import logo from './logo.svg';
-import {useState, useEffect} from 'react';
-import useGlobalStore from "./store";
-import  {refreshArticles} from './actions';
+import { useEffect } from 'react';
+import useGlobal from "./store";
+import {refreshArticles} from './actions';
+import Article from './components/Article';
+import SideBar from './components/SideBar';
 import './App.css';
 
 function App() {
-  const [articles, refreshArticles] = useGlobalStore(
+  const [articles, refreshArticles] = useGlobal(
     store => store.articles,
     actions => actions.refreshArticles
   );
@@ -19,24 +20,8 @@ function App() {
         <h1>Readit</h1>
         <h2>Read Reddit's top 50 stories and get conviced of hiring me</h2>
       </header>
-      {
-        articles.length
-        ? articles
-          .map((a, i) => {if (i < 5) console.log(a.data); return a;})
-          .map(({data}, i) => <img
-            src={
-              data.thumbnail.startsWith('http')
-              ? data.thumbnail
-              : logo
-            } 
-            key={i} 
-            alt={data.title}
-            title={data.title}
-            width={data.thumbnail_width || 140}
-            height={data.thumbnail_height || 140} 
-          />)
-        :'Loading...'
-      }
+      <SideBar />
+      <Article />
     </div>
   );
 }
