@@ -8,7 +8,12 @@ const SideBar = () => {
     actions => actions.markAsRead
   );
   return (
-    <div style={{ display:'flex', flexDirection: 'column'}}>
+    <div style={{ 
+      display:'flex',
+      flexDirection: 'column',
+      backgroundColor: '#282c34',
+      width: '25%'
+    }}>sdfsdf
       <ArticleList />
     </div>
   );

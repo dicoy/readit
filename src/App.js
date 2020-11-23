@@ -15,10 +15,10 @@ function App() {
   },[refreshArticles]);
 
   return (
-    <div className="ReadIt">
+    <div>
       <header className="App-header">
-        <h1>Readit</h1>
-        <h2>Read Reddit's top 50 stories and get conviced of hiring me</h2>
+        <h2>Readit</h2>
+        <h3>Read Reddit's top 50 stories and get conviced of hiring me</h3>
       </header>
       <SideBar />
       <Article />
