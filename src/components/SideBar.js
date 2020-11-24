@@ -1,19 +1,16 @@
-import react from 'react';
+import react, { useState }  from 'react';
 import useGlobal from "../store";
 import ArticleList from './ArticleList';
 
-const SideBar = () => {
+const SideBar = ({title}) => {
   const [articles, markAsRead] = useGlobal(
     state => state.articles,
     actions => actions.markAsRead
   );
+  const [open, setOpen] = useState(true);
   return (
-    <div style={{ 
-      display:'flex',
-      flexDirection: 'column',
-      backgroundColor: '#282c34',
-      width: '25%'
-    }}>sdfsdf
+    <div className={`flex-column bg-near-black ph2 w-25 overflow-y-scroll absolute top-0`}>
+      <h4>{title}</h4>
       <ArticleList />
     </div>
   );

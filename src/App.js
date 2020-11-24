@@ -16,11 +16,11 @@ function App() {
 
   return (
     <div>
-      <header className="App-header">
+      <header className="bg-near-black white tc flex-column align-center justify-center">
         <h2>Readit</h2>
         <h3>Read Reddit's top 50 stories and get conviced of hiring me</h3>
       </header>
-      <SideBar />
+      <SideBar title={'Reddit Posts'} />
       <Article />
     </div>
   );

@@ -6,8 +6,8 @@ export const refreshArticles = store => {
     .filter(article => !store.state.viewed.includes(article.id))
     .map(article => article.data);
 
-    let newViewed = new Set(store.state.viewed);  
-    newViewed = newArticles.forEach(({ id }) => newViewed.delete(id));
+    let newViewed = new Set(store.state.viewed);
+    newArticles.forEach(({ id }) => newViewed.delete(id));
 
     store.setState({ articles: newArticles, viewed: newViewed });
   });
