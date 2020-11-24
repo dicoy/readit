@@ -35,7 +35,7 @@ const ArticleList = () => {
           <span>></span>
         </div>
         <div className={'flex-row justify-between items-center w-100'}>
-          <button className={'link dim ph3 pv2 mb2 dib'}>Dismiss</button>
+          <button className={'link dim bn bg-transparent ph3 pv2 mb2 dib white'}>Dismiss</button>
           <span className={'orange'}>
             { `${article.num_comments} comments` }
           </span> 

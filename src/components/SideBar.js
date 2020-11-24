@@ -9,9 +9,11 @@ const SideBar = ({title}) => {
   );
   const [open, setOpen] = useState(true);
   return (
-    <div className={`flex-column bg-near-black white ph2 w-25 overflow-y-scroll absolute top-0`}>
+    <div style={{left: '-25%'}} 
+    className={`slideIn flex-column bg-near-black white ph2 w-25 overflow-y-scroll absolute top-0`}>
       <h4>{title}</h4>
       <ArticleList />
+      
     </div>
   );
 }
