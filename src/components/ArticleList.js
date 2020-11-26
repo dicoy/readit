@@ -43,7 +43,7 @@ const ArticleList = () => {
             </div>
             <div className={'flex-row flex-start items-center w-100'}>
               <button
-              onClick={() => dismissArticle()}
+              onClick={() => dismissArticle(article.id)}
               className={'link dim bn bg-transparent ph3 pt1 mb2 dib white'}>
                 Ⓧ Dismiss Post
               </button>

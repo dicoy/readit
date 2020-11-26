@@ -19,9 +19,16 @@ export const markAsRead = (store, articleID) => {
 };
 
 export const dismissArticle = (store, articleID) => {
-  console.log(articleID, store.state.articles.filter(article => article.id !== articleID))
   store.setState({
-    articles: store.state.articles.filter(article => article.id !== articleID)
+    articles: store.state.articles.filter(article => article.id !== articleID),
+    dimissed: store.state.dismissed.concat([articleID])
+  });
+};
+
+export const dismissAll = (store) => {
+  store.setState({
+    articles: [],
+    dismissed: store.state.dismissed.concat(store.state.articles.map(article => article.id))
   });
 };
 

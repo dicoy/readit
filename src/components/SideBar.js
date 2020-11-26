@@ -3,7 +3,10 @@ import useGlobal from "../store";
 import ArticleList from './ArticleList';
 
 const SideBar = ({title}) => {
-  const [articles] = useGlobal(state => state.articles);
+  const [articles, dismissAll] = useGlobal(
+    state => state.articles,
+    actions => actions.dismissAll
+  );
   const [open, setOpen] = useState(false);
   useEffect(() => setOpen(articles.length > 0),[articles]);
   return (
@@ -14,8 +17,13 @@ const SideBar = ({title}) => {
         <span></span>
       </div>  
       <div className="flex-column items-start list overflow-y-hidden h-100">
-        <h4 className={'pt4 pb3 self-center'}>{title}</h4>
+        <h4 className={'pt4 pb3 self-center sticky-top'}>{title}</h4>
         <ArticleList />
+        <button 
+        onClick={() => dismissAll()}
+        className={'link dim bn bg-transparent self-center pt3 mb2 dib orange sticky-bottom'}>
+          Dismiss All
+        </button> 
       </div>
     </div>
   );

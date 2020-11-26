@@ -61,3 +61,21 @@ hr {
   text-transform:uppercase;
   font-size:12px;
 }
+
+.sticky-top {
+  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  top: 10px;
+}
+
+.sticky-bottom {
+  position: sticky;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  bottom: 10px;
+}

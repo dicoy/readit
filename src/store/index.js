@@ -4,9 +4,10 @@ import * as actions from "../actions";
 
 const initialState = {
   articles: [],
+  dismissed: [],
+  errors: {},
   viewed: [],
   viewing: '',
-  errors: {}
 };
 
 const useGlobal = globalHook(React, initialState, actions);

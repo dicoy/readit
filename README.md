@@ -48,7 +48,6 @@ General tidying up (css is implemented directly using the style={} parameter)
 Image Gallery
 Error handling
 Testing
-"Dismiss" buttons are not working
 Localstorage backup for state preservation
 mock service to be able to work offline
 
