@@ -3,20 +3,20 @@ import useGlobal from "../store";
 import logo from '../logo.svg';
 
 const Article = () => {
-  const [reading] = useGlobal(
-    state => state.reading
+  const [viewing] = useGlobal(
+    state => state.viewing
   );
-  return (reading
+  return (viewing
     ? (<img
       src={
-        reading.thumbnail.startsWith('http')
-        ? reading.thumbnail
+        viewing.thumbnail.startsWith('http')
+        ? viewing.thumbnail
         : logo
       } 
-      alt={reading.title}
-      title={reading.title}
-      width={reading.thumbnail_width || 140}
-      height={reading.thumbnail_height || 140}
+      alt={viewing.title}
+      title={viewing.title}
+      width={viewing.thumbnail_width || 140}
+      height={viewing.thumbnail_height || 140}
     />)
     : ''
   );

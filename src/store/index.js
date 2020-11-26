@@ -5,6 +5,7 @@ import * as actions from "../actions";
 const initialState = {
   articles: [],
   viewed: [],
+  viewing: '',
   errors: {}
 };
 

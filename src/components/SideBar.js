@@ -7,13 +7,18 @@ const SideBar = ({title}) => {
     state => state.articles,
     actions => actions.markAsRead
   );
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
-    <div style={{left: '-25%'}} 
-    className={`slideIn flex-column bg-near-black white ph2 w-25 overflow-y-scroll absolute top-0`}>
-      <h4>{title}</h4>
-      <ArticleList />
-      
+    <div id="sidebar" className={`${open ? 'active' : ''} white`}>
+      <div className="toggle-btn" onClick={() => setOpen(!open)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>  
+      <div className="flex-column items-start list overflow-y-scroll">
+        <h4 className={'pt4 pb3 self-center'}>{title}</h4>
+        <ArticleList />
+      </div>
     </div>
   );
 }

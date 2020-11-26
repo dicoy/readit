@@ -18,7 +18,7 @@ function App() {
     <div>
       <header className="bg-near-black white tc flex-column align-center justify-center">
         <h2>Readit</h2>
-        <h3>Read Reddit's top 50 stories and get conviced of hiring me</h3>
+        <h3>Read Reddit's top 50 stories</h3>
       </header>
       <SideBar title={'Reddit Posts'} />
       <Article />

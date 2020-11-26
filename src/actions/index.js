@@ -3,22 +3,27 @@ export const refreshArticles = store => {
   .then(r=> r.json())
   .then(j=> {
     const newArticles = j.data.children
-    .filter(article => !store.state.viewed.includes(article.id))
-    .map(article => article.data);
-
-    let newViewed = new Set(store.state.viewed);
-    newArticles.forEach(({ id }) => newViewed.delete(id));
-
-    store.setState({ articles: newArticles, viewed: newViewed });
+    .map(article => ({...(article.data || {}), viewed: false}));
+    store.setState({ articles: newArticles });
   });
 };
 
 export const markAsRead = (store, articleID) => {
-  let newViewed = new Set(store.state.viewed);
-  newViewed = newViewed.add(articleID);
+  store.setState({
+    articles: store.state.articles.map(
+      article => article.id == articleID 
+      ? {...article, viewed: true}
+      : article
+    )
+  });
+};
 
-  const newArticles = store.state.articles
-  .filter(article => articleID !== article.id);
+export const dismissArticle = (store, articleID) => {
+  store.setState({
+    articles: store.state.articles.filter(article => article.id != articleID)
+  });
+};
 
-  store.setState({ viewed: newViewed, articles: newArticles });
+export const viewArticle = (store, article) => {
+  store.setState({ viewing: article });
 };
