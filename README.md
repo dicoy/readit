@@ -44,7 +44,7 @@ After the new articles are available, it will join use the localStorage info to 
 ## Next steps
 
 Here are some items were left out due to time constraints, and some other "nice to have"s
-- General tidying up (css is implemented directly using the style={} parameter in some cases)
+- General tidying up (ie: css is implemented directly using the style={} parameter in some cases)
 - Image Gallery
 - Error handling
 - Testing
