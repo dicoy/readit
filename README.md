@@ -41,11 +41,10 @@ For the challenge I just used the default pallet and spacing. In a real proyect 
 ## Next steps
 
 Here are some items were left out due to time constraints, and some other "nice to have"s
-
-General tidying up (css is implemented directly using the style={} parameter in some cases)
-Image Gallery
-Error handling
-Testing
-Localstorage backup for state preservation
-mock service to be able to work offline
+- General tidying up (css is implemented directly using the style={} parameter in some cases)
+- Image Gallery
+- Error handling
+- Testing
+- Localstorage backup for state preservation
+- mock service to be able to work offline
 
