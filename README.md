@@ -32,7 +32,7 @@ Styling has been done using Tachyons CSS. It's just a collection of functional c
 	<h4 className={'pt4 pb3 self-center'}>{title}</h4>
 	<ArticleList />
 </div>
-```html
+```
 
 here you have a div withe flexbox colum, aligned items to the start, height %100 and hidden overflow in Y. Inside you have an <h4> tag with some padding-top, a little less padding bottom and align-self: center.
 
