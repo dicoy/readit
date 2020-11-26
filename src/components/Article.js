@@ -4,8 +4,9 @@ import logo from '../logo.svg';
 import { timeAgoFormat } from '../utils';
 
 const Article = () => {
-  const [[loaded, viewing]] = useGlobal(
-    state => [(state.articles.length > 0), state.viewing]
+  const [[loading, articlesAvailable, viewing], refreshArticles] = useGlobal(
+    state => [state.loading, (state.articles.length > 0), state.viewing],
+    actions => actions.refreshArticles
   );
   return (viewing
     ? (<div style={{color: 'black', paddingLeft: '30%', paddingTop: '40px', paddingBottom:'40px'}}>
@@ -41,9 +42,18 @@ const Article = () => {
           </span> 
         </div>
       </div>)
-    : !loaded ?
-    <div className="flex-column w-100 items-center pt6"><h3>Loading...</h3></div>
-    :''
+    : loading ? <div className="flex-column w-100 items-center pt6">
+      <h3>Loading...</h3>
+    </div>
+    : articlesAvailable ? '' 
+    : <div className="flex-column w-100 items-center pt6">
+      <h3>No new articles</h3>
+      <button
+      className="link dim ba bw2 br3 b--black bg-transparent self-center mt3 ph3 pv2 dib"
+      onClick={() => refreshArticles()}>
+        Refresh Articles
+      </button>
+    </div>
   );
 }
 

@@ -20,7 +20,10 @@ const SideBar = ({title}) => {
         <h4 className={'pt4 pb3 self-center sticky-top'}>{title}</h4>
         <ArticleList />
         <button 
-        onClick={() => dismissAll()}
+        onClick={e => {
+          e.stopPropagation();
+          dismissAll();
+        }}
         className={'link dim bn bg-transparent self-center pt3 mb2 dib orange sticky-bottom'}>
           Dismiss All
         </button> 

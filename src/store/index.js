@@ -8,6 +8,7 @@ const initialState = {
   errors: {},
   viewed: [],
   viewing: '',
+  loading: false
 };
 
 const useGlobal = globalHook(React, initialState, actions);
