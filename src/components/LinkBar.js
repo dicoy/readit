@@ -14,21 +14,25 @@ const LinkBar = ({pagination}) => {
   );
   console.log(articles);
   return (articles.length
-  ? <div style={{paddingLeft:'30%'}} className={'flex-row items-end justify-around'} >{
-      articles
-      .map((article, i) => (
-        <a 
-        key={i}
-        href={'#'}
-        className={'link dim bn bg-transparent ph3 pt1 mb2 dib blue'}
-        onClick={() => { 
-          viewArticle(article);
-          markAsRead(article.id);
-        }}>
-          {`#${article.position}`}
-        </a>
-      ))
-    }</div>
+  ? <div style={{paddingLeft:'30%'}} className={'flex-column'}>
+      <h4>Read more articles</h4>
+      <div className={'flex-row items-end justify-around'} >{
+        articles
+        .map((article, i) => (
+          <a 
+          key={i}
+          href={'#'}
+          className={'link dim bn bg-transparent ph3 pt1 mb2 dib blue'}
+          onClick={() => { 
+            viewArticle(article);
+            markAsRead(article.id);
+          }}>
+            {`#${article.position}`}
+          </a>
+        ))
+      }</div>
+    </div>
+
   :''
   );
 }
