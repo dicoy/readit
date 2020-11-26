@@ -19,6 +19,7 @@ export const markAsRead = (store, articleID) => {
 };
 
 export const dismissArticle = (store, articleID) => {
+  console.log(articleID, store.state.articles.filter(article => article.id !== articleID))
   store.setState({
     articles: store.state.articles.filter(article => article.id !== articleID)
   });

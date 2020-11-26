@@ -12,14 +12,13 @@ const LinkBar = ({pagination}) => {
     },
     actions => [actions.markAsRead, actions.viewArticle]
   );
-  console.log(articles);
   return (articles.length
   ? <div style={{paddingLeft:'30%'}} className={'flex-column'}>
       <h4>Read more articles</h4>
       <div className={'flex-row items-end justify-around'} >{
         articles
         .map((article, i) => (
-          <a 
+          <button 
           key={i}
           href={'#'}
           className={'link dim bn bg-transparent ph3 pt1 mb2 dib blue'}
@@ -28,7 +27,7 @@ const LinkBar = ({pagination}) => {
             markAsRead(article.id);
           }}>
             {`#${article.position}`}
-          </a>
+          </button>
         ))
       }</div>
     </div>

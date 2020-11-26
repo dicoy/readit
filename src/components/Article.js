@@ -8,7 +8,7 @@ const Article = () => {
     state => [(state.articles.length > 0), state.viewing]
   );
   return (viewing
-    ? (<div style={{color: 'black', paddingLeft: '30%', paddingTop: '40px'}}>
+    ? (<div style={{color: 'black', paddingLeft: '30%', paddingTop: '40px', paddingBottom:'40px'}}>
         <div className={'flex-row flex-start w-100'}>
           <span className={'fw9 pr2'}>{viewing.author}</span>
           <span>{timeAgoFormat(viewing.created)}</span>
@@ -28,12 +28,12 @@ const Article = () => {
           />
           <h2 className={'pr3'}>{viewing.title}</h2>
         </div>
-        <div className={'flex-row flex-start items-center w-100'}>
+        <div className={'flex-row items-center w-100'}>
           <a
-          href={`https://${viewing.permalink}`}
+          href={`https://reddit.com${viewing.permalink}`}
           rel="noopener noreferrer"
           target="_blank" 
-          className={'link dim bn bg-transparent ph3 pt1 mb2 dib white'}>
+          className={'link dim bn bg-transparent ph3 pt1 mb2 dib blue'}>
             View full article
           </a>
           <span className={'orange'}>
