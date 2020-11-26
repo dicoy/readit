@@ -42,9 +42,8 @@ For the challenge I just used the default pallet and spacing. In a real proyect 
 
 Here are some items were left out due to time constraints, and some other "nice to have"s
 
-Styling could use some more attention
 App is usable from a mobile browser screen, but responsivness is not 100% (Sidebar should expand fullscreen.
-General tidying up (css is implemented directly using the style={} parameter)
+General tidying up (css is implemented directly using the style={} parameter in some cases)
 Image Gallery
 Error handling
 Testing
