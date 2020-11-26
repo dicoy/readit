@@ -9,8 +9,8 @@ const Article = () => {
     actions => actions.refreshArticles
   );
   return (viewing
-    ? (<div style={{color: 'black', paddingLeft: '30%', paddingTop: '40px', paddingBottom:'40px'}}>
-        <div className={'flex-row flex-start w-100'}>
+    ? (<div className={'pl-30-ns'} style={{color: 'black', paddingTop: '40px', paddingBottom:'40px'}}>
+        <div className={'flex-row justify-around justify-start-ns w-100'}>
           <span className={'fw9 pr2'}>{viewing.author}</span>
           <span>{timeAgoFormat(viewing.created)}</span>
         </div>
@@ -29,7 +29,7 @@ const Article = () => {
           />
           <h2 className={'pr3'}>{viewing.title}</h2>
         </div>
-        <div className={'flex-row items-center w-100'}>
+        <div className={'flex-row justify-around justify-start-ns w-100'}>
           <a
           href={`https://reddit.com${viewing.permalink}`}
           rel="noopener noreferrer"

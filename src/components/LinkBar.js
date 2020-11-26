@@ -13,9 +13,9 @@ const LinkBar = ({pagination}) => {
     actions => [actions.markAsRead, actions.viewArticle]
   );
   return (articles.length
-  ? <div style={{paddingLeft:'30%'}} className={'flex-column'}>
+  ? <div className={'flex-column pl-30-ns'}>
       <h4>Read more articles</h4>
-      <div className={'flex-row items-end justify-around'} >{
+      <div className={'flex-row items-end justify-around flex-wrap'} >{
         articles
         .map((article, i) => (
           <button 
