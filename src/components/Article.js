@@ -8,7 +8,7 @@ const Article = () => {
     state => [(state.articles.length > 0), state.viewing]
   );
   return (viewing
-    ? (<div style={{paddingLeft: '30%', paddingTop: '40px'}}>
+    ? (<div style={{color: 'black', paddingLeft: '30%', paddingTop: '40px'}}>
         <div className={'flex-row flex-start w-100'}>
           <span className={'fw9 pr2'}>{viewing.author}</span>
           <span>{timeAgoFormat(viewing.created)}</span>

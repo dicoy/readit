@@ -23,7 +23,7 @@ function App() {
       </header>
       <SideBar title={'Reddit Posts'}  />
       <Article />
-      
+      <LinkBar pagination={10} />
     </div>
   );
 }
