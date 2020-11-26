@@ -4,7 +4,7 @@ import logo from '../logo.svg';
 import { timeAgoFormat } from '../utils';
 
 const Article = () => {
-  const [[loading, viewing]] = useGlobal(
+  const [[loaded, viewing]] = useGlobal(
     state => [(state.articles.length > 0), state.viewing]
   );
   return (viewing
@@ -41,7 +41,7 @@ const Article = () => {
           </span> 
         </div>
       </div>)
-    : !loading ?
+    : !loaded ?
     <div className="flex-column w-100 items-center pt6"><h3>Loading...</h3></div>
     :''
   );
