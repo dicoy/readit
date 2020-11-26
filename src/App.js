@@ -3,6 +3,7 @@ import useGlobal from "./store";
 import {refreshArticles} from './actions';
 import Article from './components/Article';
 import SideBar from './components/SideBar';
+import LinkBar from './components/LinkBar';
 import './App.css';
 
 function App() {
@@ -20,8 +21,9 @@ function App() {
         <h2>Readit</h2>
         <h3>Read Reddit's top 50 stories</h3>
       </header>
-      <SideBar title={'Reddit Posts'} />
+      <SideBar title={'Reddit Posts'}  />
       <Article />
+      
     </div>
   );
 }

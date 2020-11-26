@@ -11,7 +11,7 @@ export const refreshArticles = store => {
 export const markAsRead = (store, articleID) => {
   store.setState({
     articles: store.state.articles.map(
-      article => article.id == articleID 
+      article => article.id === articleID 
       ? {...article, viewed: true}
       : article
     )
@@ -20,7 +20,7 @@ export const markAsRead = (store, articleID) => {
 
 export const dismissArticle = (store, articleID) => {
   store.setState({
-    articles: store.state.articles.filter(article => article.id != articleID)
+    articles: store.state.articles.filter(article => article.id !== articleID)
   });
 };
 

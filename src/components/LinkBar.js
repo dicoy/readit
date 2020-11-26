@@ -4,19 +4,19 @@ import { markAsRead } from '../actions';
 import logo from '../logo.svg';
 import { timeAgoFormat } from '../utils';
 
-const ArticleList = () => {
+const LinkBar = () => {
   const [articles, [markAsRead, viewArticle]] = useGlobal(
     state => state.articles,
     actions => [actions.markAsRead, actions.viewArticle]
   );
-
-  return (<div className={'overflow-y-scroll'}>
-    { articles.length
-    ? articles.map((article, i) => (
+  return (articles.length
+  ? articles
+    .map((article, i) => (
       <div key={i} className={'dim pointer flex-column white pr3 pt1 w-100'} onClick={
         () => { 
           viewArticle(article);
           markAsRead(article.id);
+          console.log("loading", article.id);
         }
       }>
         <div className={'flex-row flex-start w-100'}>
@@ -25,7 +25,7 @@ const ArticleList = () => {
           <span>{timeAgoFormat(article.created)}</span>
         </div>
         <div className={'flex-row justify-between items-center w-100'}>
-          <img
+          <imga
           src={
             article.thumbnail.startsWith('http')
             ? article.thumbnail
@@ -52,8 +52,8 @@ const ArticleList = () => {
         <hr className={'b--gray pv1 w-90 self-center'} />
       </div>
     ))
-  :''}
-  </div>);
+  :'Loading...'
+  );
 }
 
-export default ArticleList;
+export default LinkBar;
