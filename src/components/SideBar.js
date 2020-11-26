@@ -10,8 +10,8 @@ const SideBar = ({title}) => {
   const [open, setOpen] = useState(false);
   useEffect(() => setOpen(articles.length > 0),[articles]);
   return (
-    <div id="sidebar" className={`${open ? '' : 'active'} white`}>
-      <div className="toggle-btn" onClick={() => setOpen(!open)}>
+    <div id="sidebar" className={`w-90 w-30-ns ${open ? '' : 'left--90 left--30-ns'} white`}>
+      <div className={`toggle-btn`} onClick={() => setOpen(!open)}>
         <span></span>
         <span></span>
         <span></span>
