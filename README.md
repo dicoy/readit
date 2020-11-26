@@ -34,9 +34,12 @@ Styling has been done using Tachyons CSS. It's just a collection of functional c
 </div>
 ```
 
-here you have a div withe flexbox colum, aligned items to the start, height %100 and hidden overflow in Y. Inside you have an <h4> tag with some padding-top, a little less padding bottom and align-self: center.
+here you have a div withe flexbox colum, aligned items to the start, height %100 and hidden overflow in Y. Inside you have an h4 tag with some padding-top (pt-4), a little less padding bottom (pb3) and align-self: center.
 
 For the challenge I just used the default pallet and spacing. In a real proyect however, one would set up these clases beforehand to match design specifications and only keep classes you use. Still it's a pretty small library when compared to other css frameworks.
+
+All changes to the state are persisted to localStorage and upon reloading the app, it will show articles from localStorage while fetching the new ones.
+After the new articles are available, it will join use the localStorage info to update "dismissed" and "viewed" status.
 
 ## Next steps
 
@@ -45,6 +48,5 @@ Here are some items were left out due to time constraints, and some other "nice 
 - Image Gallery
 - Error handling
 - Testing
-- Localstorage backup for state preservation
 - mock service to be able to work offline
 
