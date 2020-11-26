@@ -1,13 +1,31 @@
 export const refreshArticles = store => {
-  store.setState({loading:true});
+  const oldViewedArticles = store.state.articles
+  .filter(article => article.viewed)
+  .map(article => article.id);
+
   fetch('https://www.reddit.com/top.json?limit=50')
   .then(r=> r.json())
   .then(j=> {
     const newArticles = j.data.children
-    .map(article => ({...(article.data || {}), viewed: false}));
-
+    .map(article => {
+      return {
+        ...(article.data || {}), 
+        viewed: oldViewedArticles.includes(article.data.id)
+      }
+    })
+    .filter(article => !store.state.dismissed.includes(article.id));
     store.setState({ articles: newArticles, loading: false });
     localStorage.setItem('articles', JSON.stringify(newArticles));
+  });
+};
+
+export const loadLocalStorage = store => {
+  const localArticles = JSON.parse(localStorage.getItem('articles')) || [];
+  const localDismissed = JSON.parse(localStorage.getItem('dismissed')) || [];
+  store.setState({
+    articles: localArticles, 
+    dismissed: localDismissed, 
+    loading: !(localArticles.length > 0)
   });
 };
 

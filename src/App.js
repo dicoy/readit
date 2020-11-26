@@ -7,10 +7,13 @@ import LinkBar from './components/LinkBar';
 import './App.css';
 
 function App() {
-  const [articles, refreshArticles] = useGlobal(
+  const [articles, [refreshArticles, loadLocalStorage]] = useGlobal(
     store => store.articles,
-    actions => actions.refreshArticles
+    actions => [actions.refreshArticles, actions.loadLocalStorage]
   );
+  useEffect(() => {
+    loadLocalStorage();
+  },[loadLocalStorage]);
   useEffect(() => {
     refreshArticles();
   },[refreshArticles]);
