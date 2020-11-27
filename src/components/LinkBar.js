@@ -22,7 +22,8 @@ const LinkBar = ({pagination}) => {
           key={i}
           href={'#'}
           className={'link dim bn bg-transparent ph3 pt1 mb2 dib blue'}
-          onClick={() => { 
+          onClick={e => {
+            e.stopPropagation();
             viewArticle(article);
             markAsRead(article.id);
           }}>
